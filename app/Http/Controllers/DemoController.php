@@ -44,4 +44,33 @@ class DemoController extends Controller
         })->implode('');
         return $this->respondSuccess($result);
     }
+
+    public function demo4($postId)
+    {
+        $data = [
+            17,
+            32,
+            'recipes',
+            11,
+            'kitchen'
+        ];
+        $post = Post::find($postId);
+        $tagIds = $this->normalizeTagsToIds($data);
+        $post->tags()->sync($tagIds);
+        return view('posts.index');
+    }
+
+    private function normalizeTagsToIds($tags)
+    {
+        return collect($tags)->map(function ($nameOrId) {
+            return $this->normalizeTagToId($nameOrId);
+        });
+    }
+    private function normalizeTagToId($nameOrId)
+    {
+        if (is_numeric($nameOrId)) {
+            return $nameOrId;
+        }
+        return Tag::create(['name' => $nameOrId])->id;
+    }
 }
