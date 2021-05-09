@@ -26,3 +26,5 @@ Route::get('demo6', 'DemoController@demo6');
 Route::get('demo7', 'DemoController@demo7');
 Route::get('demo8', 'DemoController@demo8');
 Route::get('demo9', 'DemoController@demo9');
+
+Route::get('class', 'ClassController@create');
