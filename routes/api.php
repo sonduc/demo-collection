@@ -28,3 +28,5 @@ Route::get('demo8', 'DemoController@demo8');
 Route::get('demo9', 'DemoController@demo9');
 
 Route::get('class', 'ClassController@create');
+
+Route::get('todo', 'TodoController@index');

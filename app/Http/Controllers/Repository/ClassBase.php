@@ -14,4 +14,6 @@ abstract class ClassBase
     }
     public function update(){}
     public function delete(){}
+
+    abstract public function transform();
 }

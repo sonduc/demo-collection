@@ -12,4 +12,9 @@ class ClassRepository extends ClassBase implements ClassInterface
 //        $this->name = 'olala';
         return parent::create();
     }
+
+    public function transform()
+    {
+
+    }
 }
